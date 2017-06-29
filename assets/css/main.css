@@ -1,0 +1,458 @@
+@font-face {
+    font-family: "Cabin";
+    src: url("../fonts/cabin/Cabin-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Lobster";
+    src: url("../fonts/lobster/Lobster-Regular.ttf")
+}
+
+@font-face {
+    font-family: "Script";
+    src: url("../fonts/arimo/Arimo-Regular.ttf");
+}
+
+body, html{
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.serif{
+	font-family: Georgia, serif;
+}
+
+.sans-serif{
+	font-family: Arimo, Verdana, Geneva, sans-serif;
+}
+
+.script{
+	font-family: Lobster, Verdana, Geneva, sans-serif;
+}
+
+.flex-layout{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+.flex-layout.column{
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+}
+.flex-layout.center{
+	-ms-align-items: center;
+	align-items: center;
+}
+.flex-layout.center-center{
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+}
+.flex-layout.wrap{
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+#container{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	position: relative;
+
+	height: 100vh;
+	padding-left: 260px;
+}
+
+#mainNav form, #mainNav input, #mainNav button{
+	display: inline-block;
+}
+
+aside{
+	position: fixed;
+	left: 0;
+	width: 260px;
+	height: 100vh;
+	box-shadow: 0 3px 35px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+aside .long-header{
+	height: 190px;
+	color: #776b00;
+	font-size: 20px;
+	font-weight: bolder;
+	background-color: #f4f4f4;
+	/*#fff9c4*/
+	background-image: -webkit-linear-gradient(top left, #fdd835, #ffee58, #ffeb3b);
+	background-image: -o-linear-gradient(top left, #fdd835, #ffee58, #ffeb3b);
+	background-image: linear-gradient(to bottom right, #fdd835, #ffee58, #ffeb3b);
+
+	line-height: 190px;
+	padding: 60px 30px;
+	box-sizing: border-box;
+}
+
+aside ul{
+	margin: 0;
+	margin-top: 20px;
+	padding: 0;
+}
+
+aside li{
+	list-style-type: none;
+	padding: 14px 10px;
+	margin-left: 20px;
+}
+
+aside li a{
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: inline-block;
+	position: relative;
+}
+aside li a:after{
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	height: 1px;
+	background: #000;
+	width: 65%;
+	display: none;
+}
+aside li.active a{
+	color: rgba(0, 0, 0, 1);
+}
+aside li.active a:after{
+	display: block;
+}
+main{
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	-o-flex: 1;
+	flex: 1;
+
+	background: #fafafa;
+	height: calc(100% - 84px);
+	margin-top: 84px;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+#mainContent{
+	padding: 20px 60px;
+}
+
+#mainNav{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	padding: 0;
+	padding-left: 60px;
+	padding-right: 20px;
+	background-color: transparent;
+	position: fixed;
+	top: 0;
+	width: calc(100% - 340px);
+	/*background-color: #ffeb3b;*/
+	background-color: #fff;
+	z-index: 1;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#pageTitle{
+	font-size: 23px; margin:0 12px;
+	font-family: verdana;
+}
+#pageTitle::first-letter{
+	text-transform: uppercase;
+}
+#searchForm{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	-o-flex: 1;
+	flex: 1;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+	margin: 0 2%;
+	position: relative;
+}
+#searchBar{
+	display: block;
+	height: 43px;
+	padding-left: 25px;
+	padding-right: 15px;
+	width:calc(100% - 60px);
+	max-width: 390px;
+	border-radius: 40px;
+	border: 1px solid #bbb;
+	background-color: transparent;
+	outline: none;
+	font-size: 18px;
+	position: relative;
+	margin-left: 30px;
+}
+#searchForm .search-message{
+	margin-left: 20px;
+	font-size: 14px;
+	color: #555;
+	font-family: verdana;
+	display: none;
+}
+#searchBar:focus:valid + .search-message{
+	display: inline-block;
+}
+#searchForm button{
+	position: absolute;
+	opacity: 0;
+	margin: 0 10px;
+	top: 3px;
+	height: inherit;
+	display: inline-block;
+	background-color: transparent;
+	border: 1px solid #eee;
+}
+#searchForm button svg{
+	fill: #555;
+}
+#userMenu{
+	position: relative;
+	padding: 10px;
+}
+
+#userMenu #dp{
+	border-radius: 50%; 
+	background-color: #ddd;
+	width: 50px;
+	height: 50px;
+	position: relative;
+	z-index: 1;
+	overflow:hidden; 
+	margin: 8px 0;
+}
+#userMenu #dp img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+#userMenu #details{
+	white-space: nowrap;
+	position: absolute;
+	right: 0; top: 0;
+	padding: 20px;
+	padding-right:90px; 
+	padding-bottom: 15px;
+	background-color: #fff;
+	box-shadow: -2px 1px 12px rgba(0,0,0,0.1);
+	overflow: hidden;
+	/*box-sizing: border-box;*/
+	
+	opacity: 0;
+	pointer-events: none;
+}
+#userMenu:hover #details{
+	transform: none;
+	opacity: 1;
+	pointer-events: auto;
+	transition: opacity 0.25s ease-out;
+}
+
+#userMenu #details span, #userMenu #details a{
+	display: inline-block;
+	transform: translateX(20px);
+	opacity: 0.5;
+
+	transition: transform 0.05s ease-in-out, opacity 0.05s ease-in-out;
+}
+#userMenu:hover #details span, 
+#userMenu:hover #details a{
+	transform: none;
+	opacity: 1;
+}
+.rounded-btn{
+	background-color: transparent;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	padding: 8px 20px;
+	text-transform: uppercase;
+	border-radius: 28px;
+	border: 1px solid #999;
+	font-size: 12px;
+	font-family: verdana;
+	color: #000;
+	margin-top: 12px;
+	min-width: 60px;
+}
+
+/*A TICKET*/
+.ticket-item{
+	overflow: hidden;
+	min-height: 280px;
+	background: #fff;
+	margin-right: 16px;
+	margin-bottom: 22px;
+	border-radius: 4px;
+	box-shadow: 0 0 6px rgba(0,0,0,0.1);
+	background: #42275a;
+	background: -webkit-linear-gradient(to right, #734b6d, #42275a);
+	background: linear-gradient(to right, #734b6d, #42275a);
+}
+
+.ticket-item .upper{
+	position: relative;
+	min-height: 120px;
+	font-size: 1.6em;
+	color: #fff;
+	justify-content: flex-end;
+	padding-bottom: 16px;
+	padding-left: 16px;
+	border-radius: 3px;
+}
+
+.ticket-item .seat-number{
+	position: absolute;
+	right: 12px;
+	bottom: -20px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: #fdd835;
+	color: #000;
+	font-weight: bold;
+	font-size: 16px;
+	/*box-shadow: 0 3px 6px rgba(0,0,0,0.1)*/
+}
+
+.ticket-item .upper h3{
+	margin: 0;
+	padding: 0;
+	padding-bottom: 3px;
+	font-size: 0.8em;
+}
+
+.ticket-item .upper .trip-route{
+	font-size: 0.5em;
+}
+
+.ticket-item .ticket-info{
+	padding: 0 16px;
+	padding-top: 16px;
+	background: #fff;
+	padding-bottom: 24px;
+	flex: 1;
+}
+
+.ticket-item .item-title{
+	font-size: 0.8em;
+	color: #42275a;
+}
+
+.ticket-item .item-title:first-letter{
+	text-transform: uppercase;
+}
+
+.ticket-item .passenger-name{
+	padding: 0;
+	margin: 0;
+	padding-bottom: 8px;
+	font-size: 1.1em;
+	margin-bottom: 2px;
+	color: #2b1a37;
+}
+
+.ticket-item .trip-departure{
+	font-size: 0.9em;
+	margin-bottom: 12px;
+}
+
+.ticket-item .trip-date{
+	/*margin-right: 10px;*/
+}
+
+.ticket-item .trip-time{
+	margin-left: auto;
+	margin-right: 4px;
+}
+
+.trip-price{
+	font-size: 1.2em;
+	text-align: center;
+}
+
+.trip-price .item-title{
+	margin-right: 12px;
+}
+/*A ROUTE*/
+.route-item{
+	box-sizing: border-box;
+	background: #fff;
+	padding: 20px;
+	box-shadow: 0 0 1px rgba(0,0,0,0.45)
+}
+
+.route-item h3{
+	margin: 0;
+	padding: 0;
+}
+
+.route-item .route-points{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 8px 0;
+	/*background: #f00;*/
+}
+
+
+/*A US*/
+.bus-item{
+	box-sizing: border-box;
+	background: #fff;
+	padding: 20px;
+	box-shadow: 0 0 1px rgba(0,0,0,0.45)
+}
+
+.bus-item h3{
+	margin: 0;
+	padding: 0;
+}
+
+.bus-item .bus-time{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 8px 0;
+	/*background: #f00;*/
+}
+
+.bus-item .item-title{
+	font-size: 0.8em;
+	color: #42275a;
+}
+
+/*HOME PAGE STYLES*/
