@@ -30,7 +30,7 @@
 
 		public function buses(){
 			$busClass = new Bus();
-			return $busClass->get_where("owner_id=".$this->bus_id);
+			return $busClass->get_where("owner_id=".$this->id);
 		}
 	}
 ?>

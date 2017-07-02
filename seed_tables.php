@@ -7,16 +7,19 @@
 	require_once 'vendor/autoload.php';
 
 	$faker = Faker\Factory::create();
-	
+	$userClass = new User();
+
 	//seed users
-	for ($i=0; $i < 20; $i++) { 
+	for ($i=0; $i < 20; $i++) {
+		$owners = $userClass::get("role", 1);
+		$user_role = $faker->numberBetween(0,2); 
 		$user = new User();
-		$fname = $faker->firstName();
-		$user->name = $fname . " " . $faker->lastName();
-		$user->username = strtolower($fname);
-		$user->password = "1234";
-		$user->role = $faker->numberBetween(0,2);
-		$user->user_photo = "default_dp.png";
+		$fname = $user_role == 1 ? $faker->company() : $faker->firstName();
+		$user->name = $user_role == 1 ? $fname : $fname . " " . $faker->lastName();
+		$user->username = strtolower(str_replace(" ", "_", $fname));
+		$user->password = md5("1234");
+		$user->role = $user_role;
+		$user->user_photo = $user_role == 1 ? "buses/bus".count($owners).".jpg" : "default_dp.png";
 
 		$user->save();
 
@@ -53,15 +56,13 @@
 	//seed buses
 	$userClass = new User();
 	$routeClass = new Route();
+	$busClass = new Bus();
 
 	$users = $userClass::get("role", 1, "id");
 	$routes = $routeClass::all();
 
-	for ($i=0; $i < 20; $i++) { 
+	for ($i=0; $i < 20; $i++) {
 		$mins = ["00", "15", "30"];
-		$hr = $faker->numberBetween(6, 18);
-		$t_hr = $hr <= 12 ?: $hr - 12;
-		$am_pm = $hr < 12 ? "AM" : "PM";
 
 		$userClass = new User();
 		$routeClass = new Route();
@@ -74,11 +75,13 @@
 		$bus = new Bus();
 		$bus->owner_id = $users[array_rand($users)]->id;
 		$bus->route_id = $routes[array_rand($routes)]->id;
-		$bus->start_time = ($t_hr >= 10 ?: "0".$t_hr) . ":" + $mins[array_rand($mins)] . $am_pm;
+		$bus->start_hour = $faker->numberBetween(6, 18);
+		$bus->start_min = $mins[array_rand($mins)];
 		$bus->type = $faker->numberBetween(0, 2);
 		$bus->price = $faker->numberBetween(12000, 30000);
 		$bus->seat_style = $seat_style;
 		$bus->seat_count = $seat_count;
+		$bus->direction = $faker->numberBetween(0, 1);
 		$bus->save();
 
 		echo "New bus!<br>";

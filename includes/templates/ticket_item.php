@@ -26,10 +26,7 @@
 
 			<div class="trip-time sans-serif">
 				<div class="item-title sans-serif">time</div>
-				<?php
-					$leave_time = $ticket->bus()->start_time;
-					echo substr($leave_time, 0, strlen($leave_time) - 2) . ":00" . substr($leave_time, strlen($leave_time) - 2);
-				?>
+				<?php echo $ticket->bus()->start_time(); ?>
 			</div>
 		</div>
 

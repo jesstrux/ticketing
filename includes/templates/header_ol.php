@@ -70,19 +70,18 @@
 					<?php echo isset($page_title) ? $page_title : $page ?>
 				</span>
 				<form id="searchForm" action="search.php" method="GET">
+					<input autocomplete="off" id="searchBar" required type="search" placeholder="Search for bus, route..." name="q" value="<?php echo isset($search_query) ? $search_query : '' ?>">
+
+					<span class="search-message">Enter to search</span>
 					
+					<button type="submit">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+					</button>
 				</form>
 
 				<div id="userMenu">
-					<div class="flex-layout center-center">
-						<span id="username" style="margin-right:20px">
-							<?php
-								echo $user->name;
-							?>
-						</span>
-						<span id="dp" style="display:inline-block;width:50px;height:50px">
-							<img src="assets/images/profile_pictures/<?php echo $user->user_photo ?>" alt="">
-						</span>
+					<div id="dp">
+						<img src="assets/images/profile_pictures/<?php echo $user->user_photo ?>" alt="">
 					</div>
 
 					<div id="details">

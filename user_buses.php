@@ -1,11 +1,20 @@
 <?php
-	$page = "buses";
-	require_once 'includes/require_login.php';
+	$page = "user_buses";
 
 	require_once 'includes/Bus.php';
-	$busClass = new Bus();
+	require_once 'includes/User.php';
+	require_once 'includes/session.php';
 
-	$buses = $busClass::all();
+	$busClass = new Bus();
+	$userClass = new User();
+	$owner = $userClass::find($_GET["owner"]);
+	$buses = $owner->buses();
+
+	$owner_first = $owner->id == $session->user_id ? "Your" : explode(" ", str_replace(",", "", $owner->name))[0]."'s";
+
+	$page_title = $owner_first . " Buses";
+
+	require_once 'includes/require_login.php';
 ?>	
 
 <style>
@@ -13,6 +22,7 @@
 		padding-left: 10px;
 		padding-top: 10px;
 		min-width: 60%;
+		align-self: flex-start;
 	}
 
 	.bus-item{
@@ -26,7 +36,7 @@
 		padding-bottom:30px
 	}
 
-	#busPreview{
+	#busPreviews{
 		-ms-align-self: flex-start;
 		align-self: flex-start;
 		margin-left: 30px;
@@ -38,7 +48,7 @@
 <div class="flex-layout">
 	<div id="busList" class="flex-layout wrap">
 		<?php
-			$preview_link = "buses.php?";
+			$preview_link = "user_buses.php?owner=$owner->id&";
 			foreach ($buses as $i => $bus) {
 				include('includes/templates/bus_item.php');
 			}
@@ -46,7 +56,6 @@
 	</div>
 
 	<?php
-		// $reserved_seats = ["C2"];
 		if (isset($_GET['bus_id'])) {
 			$bus = $busClass::find($_GET['bus_id']);
 			include('includes/templates/bus_preview.php');

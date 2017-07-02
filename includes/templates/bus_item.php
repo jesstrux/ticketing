@@ -9,10 +9,10 @@
 		<div class="title">
 			START TIME
 		</div>
-		<span><?php echo $bus->start_time ?></span>
+		<span><?php echo $bus->start_time() ?></span>
 	</div>
 
 	<div class="flex-layout">
-		<a href="buses.php?bus_id=<?php echo $bus->id ?>">PREVIEW</a>&emsp;
+		<a href="<?php echo $preview_link?>bus_id=<?php echo $bus->id ?>">PREVIEW</a>&emsp;
 	</div>
 </div>

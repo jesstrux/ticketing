@@ -61,6 +61,43 @@ body, html{
 	-o-flex-wrap: wrap;
 	flex-wrap: wrap;
 }
+
+/*START SUMMARY CARD*/
+.summary-card{
+	background: white;
+	margin:10px;
+	min-width: calc(33.333% - 20px);
+	box-shadow: 0 0 12px rgba(0,0,0,0.1);
+	text-align:center;
+}
+
+.summary-card .card-content{
+	padding: 30px 20px;
+	padding-bottom:20px;
+}
+
+.summary-card .card-title{
+	display:block;
+	font-size: 1.5em;
+}
+
+.summary-card .card-count{
+	display:block;
+	font-size: 3em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.summary-card .card-link{
+	display: block;
+	/*background: #eee;*/
+	border-top: 1px solid #ddd;
+	color: black;
+	padding: 12px;
+	padding-bottom: 20px;
+}
+/*END SUMMARY CARD*/
+
 #container{
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -453,6 +490,12 @@ main{
 .bus-item .item-title{
 	font-size: 0.8em;
 	color: #42275a;
+	display: block !important;
+	font-weight: normal !important;
+}
+
+.bus-image{
+	width: 200px;height: 200px;background: #f0f0f0;
 }
 
 /*HOME PAGE STYLES*/

@@ -8,6 +8,10 @@ function strip_zeros_from_date( $marked_string="" ) {
   return $cleaned_string;
 }
 
+function l_zero($num){
+  return ($num >= 10) ? $num : "0" . $num;
+}
+
 function redirect_to( $location = NULL ) {
   if ($location != NULL) {
     header("Location: {$location}");
