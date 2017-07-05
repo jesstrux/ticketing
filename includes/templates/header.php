@@ -9,7 +9,7 @@
 	<div id="container">
 		<aside>
 			<div class="long-header">
-				BBPT mpyaaaa
+				BBPT
 			</div>
 			<ul>
 				<?php 

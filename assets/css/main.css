@@ -205,11 +205,9 @@ aside .long-header{
 	padding: 60px 30px;
 	box-sizing: border-box;
 
-	/*background-image: -webkit-linear-gradient(top left, #fdd835, #ffee58, #ffeb3b);
+	background-image: -webkit-linear-gradient(top left, #fdd835, #ffee58, #ffeb3b);
 	background-image: -o-linear-gradient(top left, #fdd835, #ffee58, #ffeb3b);
-	background-image: linear-gradient(to bottom right, #fdd835, #ffee58, #ffeb3b);*/
-	background: #E91E63;
-	color: #fff;
+	background-image: linear-gradient(to bottom right, #fdd835, #ffee58, #ffeb3b);
 }
 
 aside ul{
