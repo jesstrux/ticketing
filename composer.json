@@ -1,6 +1,0 @@
-{
-    "require": {
-        "fzaninotto/faker": "^1.6",
-        "ksubileau/color-thief-php": "^1.3"
-    }
-}
