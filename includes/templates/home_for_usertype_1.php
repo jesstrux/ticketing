@@ -14,8 +14,8 @@
 
 	$summary = [
 		["group" => "Buses","count" => count($buses), "link" => "user_buses.php?owner=$user->id"],
-		["group" => "Tickets sold","count" => count($tickets)],
-		["group" => "Routes Covered","count" => count($routes)]
+		["group" => "Tickets sold","count" => count($tickets)]
+		// ["group" => "Routes Covered","count" => count($routes)]
 	];
 ?>
 <div>

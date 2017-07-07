@@ -51,6 +51,17 @@
 	}
 </style>
 
+<?php
+	if (isset($_GET['bus_creation'])) {
+		$created = $_GET['bus_creation'] == 1 ? true : false;
+		$alert_type= !$created ? "error" : "success";
+		$dismiss_link= "user_buses.php?owner=$user->id";
+		$alert_message = !$created ? "<strong>Error!</strong> " : "<strong>Success!</strong> ";
+		$alert_message .= $created ? "Bus successfully created." : "Sorry, ticket couldn't be created.";
+
+		include 'includes/templates/alert.php';
+	}
+?>
 <div class="flex-layout">
 	<div id="busList" class="flex-layout wrap">
 		<?php
@@ -75,11 +86,11 @@
 
 
 <div id="newBusModal" class="modal">
-	<div class="modal-content">
+	<div class="modal-content" style="max-width: 450px">
 		<div class="modal-title">
 			<h3 class="title">New Bus</h3>
 		</div>
-		<form action="#" id="newBusForm" onsubmit="saveBus(event)">
+		<form action="save_bus.php" method="POST" id="newBusForm" onsubmit="saveBu(event)">
 			<div class="modal-body">
 					<?php include('includes/templates/create_bus_form.php') ?>
 			</div>
@@ -104,12 +115,12 @@
 
 	function saveBus(e){
 		var form = new FormData(document.getElementById('newBusForm'));
-
-		fetch('create_bus.php',{
+		e.preventDefault();
+		fetch('save_bus.php',{
 			method: 'POST',  
-		    headers: {  
-		      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"  
-		    },  
+		    // headers: {  
+		    //   "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"  
+		    // },  
 		    body: form
 		})
 		.then(function(response) {  
@@ -119,14 +130,14 @@
 			    	return;  
 			  	}
 
-				// Examine the text in the response  
-				response.json().then(function(data) {  
+				response.json().then(function(data) {
 					console.log(data);  
 				});  
 			}
 		)  
 		.catch(function(err) {  
-			console.log('Fetch Error :-S', err);  
+			console.log('Fetch Error :-S');
+			console.log(err);  
 		});
 	}
 </script>

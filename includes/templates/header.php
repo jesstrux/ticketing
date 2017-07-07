@@ -31,7 +31,7 @@
 					<a href="index.php">Home</a>
 				</li>
 
-				<li class="<?php echo $page == 'buses' ? 'active' : ''; ?>">
+				<li style="<?php echo $user_only ?>" class="<?php echo $page == 'buses' ? 'active' : ''; ?>">
 					<a href="buses.php">Buses</a>
 				</li>
 
@@ -40,7 +40,7 @@
 						My Buses</a>
 				</li>
 
-				<li style="<?php echo $user_only ?>" class="<?php echo $page == 'trips' ? 'active' : ''; ?>">
+				<li style="display: none;" class="<?php echo $page == 'trips' ? 'active' : ''; ?>">
 					<a href="trips.php">My Trips</a>
 				</li>
 

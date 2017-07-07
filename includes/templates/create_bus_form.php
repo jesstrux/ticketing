@@ -1,3 +1,36 @@
+<style>
+	.input-group{
+		margin: 10px 0;
+		width: 100%;
+		position: relative;
+	}
+
+	.flex-layout .input-group{
+		margin-right: 10px;
+		width: 50%;
+	}
+
+	.flex-layout .input-group:last-child{
+		margin-right: 0;
+		margin-left: 10px;
+	}
+
+	.input-group label{
+		display: block;
+		margin-bottom: 5px;
+	}
+
+	.flex-layout .input-group label{
+		/*display: inline-block;*/
+		margin-bottom: 0;
+	}
+
+	.input-group input,
+	.input-group select{
+		font-size: 20px;
+		width: 100%;
+	}
+</style>
 <div class="input-group">
 	<label for="route_id">Route</label>
 	<select id="route_id" name="route_id">
@@ -12,54 +45,61 @@
 	</select>
 </div>
 
-<div class="input-group">
-	<label for="start_hour">Start Hour</label>
-	<select id="start_hour" name="start_hour">
-		<?php
-			for ($i=1; $i <= 12; $i++) { 
-				echo '<option value="'.$i.'">'.l_zero($i).'</option>';
-			}
-		?>
-	</select>
+<div class="flex-layout">
+	<div class="input-group">
+		<label for="start_hour">Start Hour</label>
+		<select id="start_hour" name="start_hour">
+			<?php
+				for ($i=6; $i <= 18; $i++) { 
+					echo '<option value="'.$i.'">'.l_zero($i).'</option>';
+				}
+			?>
+		</select>
+	</div>
+
+	<div class="input-group">
+		<label for="start_min">Start Minutes</label>
+		<select id="start_min" name="start_min">
+			<?php
+				$min_options = [0, 15, 30];
+				for ($i=0; $i < count($min_options); $i++) { 
+					echo '<option value="'.$min_options[$i].'">'.l_zero($min_options[$i]).'</option>';
+				}
+			?>
+		</select>
+	</div>
 </div>
 
-<div class="input-group">
-	<label for="start_min">Start min</label>
-	<select id="start_min" name="start_min">
-		<?php
-			$min_options = [0, 15, 30];
-			for ($i=0; $i < count($min_options); $i++) { 
-				echo '<option value="'.$min_options[$i].'">'.l_zero($min_options[$i]).'</option>';
-			}
-		?>
-	</select>
+<div class="flex-layout">
+	<div class="input-group">
+		<label for="type">Type</label>
+		<select id="type" name="type">
+			<option value="0">Standard</option>
+			<option value="1">Semi Luxury</option>
+			<option value="2">Luxury</option>
+		</select>
+	</div>
+
+	<div class="input-group">
+		<label for="seat_style">Seat Style</label>
+		<select id="seat_style" name="seat_style">
+			<option value="0">Two by Three</option>
+			<option value="1">Two by Two</option>
+		</select>
+	</div>
 </div>
 
-<div class="input-group">
-	<label for="seat_style">Type</label>
-	<select id="type" name="type">
-		<option value="0">Standard</option>
-		<option value="1">Semi Luxury</option>
-		<option value="2">Luxury</option>
-	</select>
-</div>
+<div class="flex-layout">
+	<div class="input-group">
+		<label for="seat_count">Seat Count</label>
+		<input type="number" name="seat_count" placeholder="number of seats">
+	</div>
 
-<div class="input-group">
-	<label for="seat_style">Seat Style</label>
-	<select id="seat_style" name="seat_style">
-		<option value="0">Two by Three</option>
-		<option value="1">Two by Two</option>
-	</select>
-</div>
-
-<div class="input-group">
-	<label for="seat_count">Seat Count</label>
-	<input type="number" placeholder="number of seats">
-</div>
-
-<div class="input-group">
-	<label for="price">Price</label>
-	<input type="number" placeholder="bus fare">
+	<div class="input-group">
+		<label for="price">Price</label>
+		<input type="number" name="price" placeholder="bus fare">
+	</div>
 </div>
 
 <input type="hidden" name="owner_id" value="<?php echo $user->id ?>">
+<input type="hidden" name="back_link" value="user_buses.php?owner=<?php echo $user->id ?>">
