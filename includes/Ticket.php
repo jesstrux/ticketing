@@ -39,7 +39,7 @@
 
 		public function route(){
 			$routeClass = new Route();
-			return $routeClass->find($this->bus()->id);
+			return $routeClass->find($this->bus()->route_id);
 		}
 
 		public function user(){
