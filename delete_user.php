@@ -5,7 +5,7 @@
 	$removed_user_id = $user->delete();
 
 	$message = "user_removal=";
-    $message .= $removed_point_id ? "1" : "0";
+    $message .= $removed_user_id ? "1" : "0";
 
     header("Location: index.php?".$message);
 ?>

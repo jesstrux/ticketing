@@ -26,8 +26,8 @@
 			$query .= "<br/>`date` datetime NOT NULL ";
 			$query .= "DEFAULT CURRENT_TIMESTAMP,";
 			$query .= "<br/>PRIMARY KEY  (`id`),";
-			$query .= "<br/>FOREIGN KEY(bus_id) REFERENCES buses(`id`),";
-			$query .= "<br/>FOREIGN KEY(user_id) REFERENCES users(`id`)";
+			$query .= "<br/>FOREIGN KEY(bus_id) REFERENCES buses(`id`) ON DELETE CASCADE,";
+			$query .= "<br/>FOREIGN KEY(user_id) REFERENCES users(`id`) ON DELETE CASCADE";
 			
 			return $query;
 		}

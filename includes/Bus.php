@@ -38,7 +38,7 @@
 			$query .= "<br/>`direction` int(3) NOT NULL ";
 			$query .= "DEFAULT 0,";
 			$query .= "<br/>PRIMARY KEY (`id`),";
-			$query .= "<br/>FOREIGN KEY(owner_id) REFERENCES users(`id`),";
+			$query .= "<br/>FOREIGN KEY(owner_id) REFERENCES users(`id`) ON DELETE CASCADE,";
 			$query .= "<br/>FOREIGN KEY(route_id) REFERENCES routes(`id`)";
 			
 			return $query;

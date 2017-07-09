@@ -61,7 +61,7 @@
 <div>
 	<button class="rounded-btn" onclick="openModal('newRouteModal')">CREATE ROUTE</button>&nbsp;&nbsp;
 	<button class="rounded-btn" onclick="openModal('newPointModal')">CREATE LOCATION</button>&nbsp;&nbsp;
-	<!--<button class="rounded-btn" onclick="openModal('deleteUserModal')">DELETE A USER</button>-->
+	<button class="rounded-btn" onclick="openModal('deleteUserModal')">DELETE A USER</button>
 
 	<h2 class="serif" style="line-height:1em; font-size: 2em">Site summary,</h2>
 	<p class="sans-serif" style="font-size: 1.2em; font-weight: normal;">
