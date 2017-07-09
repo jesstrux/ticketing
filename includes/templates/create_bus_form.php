@@ -1,36 +1,3 @@
-<style>
-	.input-group{
-		margin: 10px 0;
-		width: 100%;
-		position: relative;
-	}
-
-	.flex-layout .input-group{
-		margin-right: 10px;
-		width: 50%;
-	}
-
-	.flex-layout .input-group:last-child{
-		margin-right: 0;
-		margin-left: 10px;
-	}
-
-	.input-group label{
-		display: block;
-		margin-bottom: 5px;
-	}
-
-	.flex-layout .input-group label{
-		/*display: inline-block;*/
-		margin-bottom: 0;
-	}
-
-	.input-group input,
-	.input-group select{
-		font-size: 20px;
-		width: 100%;
-	}
-</style>
 <div class="input-group">
 	<label for="route_id">Route</label>
 	<select id="route_id" name="route_id">
