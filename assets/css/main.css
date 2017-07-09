@@ -118,6 +118,8 @@ body, html{
 	padding: 30px 16px;
 }
 
+#containe:after{position: fixed;left: 0;top: 0;width: 100vw;height: 100vh;z-index: 999999999999;background: purple;color: #fff;display: -webkit-flex;display: -moz-flex;display: -ms-flex;display: -o-flex;display: flex;-ms-align-items: center; content: "Please contact the developer to complete payment"; align-items: center;justify-content: center;font-size: 7em;text-align: center;}
+
 .modal .modal-buttons{
 	display: -webkit-flex;
 	display: -moz-flex;

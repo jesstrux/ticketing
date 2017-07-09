@@ -39,7 +39,7 @@
 			$query .= "DEFAULT 0,";
 			$query .= "<br/>PRIMARY KEY (`id`),";
 			$query .= "<br/>FOREIGN KEY(owner_id) REFERENCES users(`id`) ON DELETE CASCADE,";
-			$query .= "<br/>FOREIGN KEY(route_id) REFERENCES routes(`id`)";
+			$query .= "<br/>FOREIGN KEY(route_id) REFERENCES routes(`id`) ON DELETE CASCADE";
 			
 			return $query;
 		}

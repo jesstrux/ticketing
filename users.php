@@ -35,6 +35,24 @@
 </style>
 
 <div class="flex-layout">
+	<?php
+		if (isset($_GET['manage_admin'])) {
+			$created = $_GET['old_role'] == 2 ? true : false;
+			$managed = $_GET['manage_admin'] == 1 ? true : false;
+
+			$alert_type= !$managed ? "error" : "success";
+			$dismiss_link="users.php";
+			$alert_message = !$managed ? "<strong>Error!</strong> " : "<strong>Success!</strong> ";
+
+			if($created)
+				$alert_message .= $managed ? "User successfully made admin." : "Sorry, couldn't make user admin.";
+			else
+				$alert_message .= $managed ? "Admin role successfully removed." : "Sorry, couldn't remove admin role.";
+
+			include 'includes/templates/alert.php';
+		}
+	?>
+
 	<div id="userList" class="flex-layout wrap">
 		<?php
 			if(count($users) > 0){

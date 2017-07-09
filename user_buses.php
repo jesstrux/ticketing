@@ -17,7 +17,8 @@
 
 	$page_title = $owner_first . " Buses";
 
-	$navBarContent = '<button onclick="openNewbusModal()" class="rounded-btn" style="margin-top: 2px">
+	if($session->user_id === $owner)
+		$navBarContent = '<button onclick="openNewbusModal()" class="rounded-btn" style="margin-top: 2px">
 							&nbsp;CREATE BUS&nbsp;
 						</button>';
 	require_once 'includes/require_login.php';

@@ -21,7 +21,7 @@
 	</div>
 
 	<div class="flex-layout">
-		<a href="edit_route.php?route_id=<?php echo $route->id ?>">CHANGE</a>&emsp;
+		<a href="javascript:void(0);" onclick="editRoute(<?php echo $route->id .",". $route->point_one_id .",". $route->point_two_id?>)">CHANGE</a>&emsp;
 		<a href="delete_route.php?route_id=<?php echo $route->id ?>">REMOVE</a>
 	</div>
 </div>
