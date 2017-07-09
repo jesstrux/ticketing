@@ -1,6 +1,7 @@
 <?php 
 	require_once("model.php");
 	require_once("Point.php");
+	require_once("Bus.php");
 	
 	/**
 	* Route class
@@ -32,6 +33,11 @@
 		public function point_two(){
 			$pointClass = new Point();
 			return $pointClass->find($this->point_two_id);
+		}
+
+		public function buses(){
+			$busClass = new Bus();
+			return $busClass->get_where("route_id = $this->id");
 		}
 	}
 ?>

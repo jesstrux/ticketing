@@ -31,8 +31,8 @@
 					<a href="index.php">Home</a>
 				</li>
 
-				<li style="<?php echo $user_only ?>" class="<?php echo $page == 'buses' ? 'active' : ''; ?>">
-					<a href="buses.php">Buses</a>
+				<li style="<?php echo $user_only ?>" class="<?php echo $page == 'Common Routes' ? 'active' : ''; ?>">
+					<a href="common_routes.php">Common Routes</a>
 				</li>
 
 				<li style="<?php echo $owners_only ?>" class="<?php echo $page == 'user_buses' ? 'active' : ''; ?>">

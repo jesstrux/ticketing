@@ -8,8 +8,10 @@
 		$bus = $busClass::find($_GET['bus']);
 		$start = $bus->direction == 0 ? $bus->route()->point_one()->name : $bus->route()->point_two()->name;
 		$dest = $bus->direction == 1 ? $bus->route()->point_one()->name : $bus->route()->point_two()->name;
-		$time = strtotime($_GET['travel_date']);
-        $dot = strftime("%Y-%m-%d %H:%M:%S", $time);
+		if($_GET['travel_date'] != null){
+			$time = strtotime($_GET['travel_date']);
+        	$dot = strftime("%Y-%m-%d %H:%M:%S", $time);
+		}
 
 		echo '<a href="javascript:history.go(-1)" style="margin-right: 20px; line-height: 20px; text-decoration: none;">
 			GO BACK
@@ -18,14 +20,17 @@
 		echo '<form style="max-width: 600px; margin:auto" method="POST" action="create_ticket.php">';
 			echo '<input type="hidden" name="user_id" value="'.$user->id.'" />';
 			echo '<input type="hidden" name="bus_id" value="'.$_GET['bus'].'" />';
-			echo '<input type="hidden" name="date" value="'.$dot.'" />';
+			if($_GET['travel_date'] != null) echo '<input type="hidden" name="date" value="'.$dot.'" />';
 			echo '<input type="hidden" name="seat_position" value="'.$_GET['chosen_seat'].'" />';
 			
 			echo '<h2 class="serif" style="margin-bottom: 12px; margin-lef: 12px;">Verify info,</h2>';
 			echo '<p style="font-size: 1em; margin-bottom: 32px" class="sans-serif"> Does everything look good? If so click SUBMIT, otherwise click GO BACK to return to previous pages and make changes.</p>';
 
 			echo '<table border="1" cellpadding="10" style="text-align: left; width: 80%">';
-			echo '<tr><th>Travel Date: </th><td>'. nicetime($dot) .'</td></tr>';
+			echo '<tr><th>Travel Date: </th><td>';
+			if($_GET['travel_date'] == null) echo '<input type="date" name="date"/>';
+			else echo nicetime($dot);
+			echo '</td></tr>';
 			echo '<tr><th>Departure Time: </th><td>'. $bus->start_time() .'</td></tr>';
 			echo '<tr><th>Start: </th><td>'. $start .'</td></tr>';
 			echo '<tr><th>Destination: </th><td>'. $dest .'</td></tr>';

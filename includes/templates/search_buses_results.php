@@ -5,8 +5,8 @@
 	$busClass = new Bus();
 	$start_point = $_GET['start_point'];
 	$dest_point = $_GET['dest_point'];
-	$travel_date = $_GET['travel_date'];
-	$bus_type = $_GET['bus_type'];
+	$travel_date = isset($_GET['travel_date']) ? $_GET['travel_date'] : null;
+	// $bus_type = $_GET['bus_type'];
 
 	$iq =  "SELECT b.id 
 			FROM buses b 
