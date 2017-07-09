@@ -3,6 +3,7 @@
 	require_once("Bus.php");
 	require_once("User.php");
 	require_once("Route.php");
+	require_once("functions.php");
 	
 	/**
 	* Ticket class
@@ -44,6 +45,31 @@
 		public function user(){
 			$userClass = new User();
 			return $userClass->find($this->user_id);
+		}
+
+		public function bus_str(){
+			return $this->bus()->owner()->name;
+		}
+
+		public function passenger(){
+			return $this->user()->name;
+		}
+
+		public function route_str(){
+			$route = $this->route();
+			return $route->point_one()->name . " to " . $route->point_two()->name;
+		}
+
+		public function date_str(){
+			return nicetime($this->date);
+		}
+
+		public function time(){
+			return $this->bus()->start_time();
+		}
+
+		public function price(){
+			return number_format($this->bus()->price);
 		}
 
 		public function seat_number(){

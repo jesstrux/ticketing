@@ -7,8 +7,13 @@
     $ticket->seat_position = $_POST['seat_position'];
     $ticket->date = $_POST['date'];
 
-    $message = "ticket_creation=";
-    $message .= $ticket->save() ? "1" : "0";
+    $new_ticket = $ticket->save();
 
-    header("Location: index.php?$message");
+    if($new_ticket){
+    	header("Location: view_ticket.php?ticket_id=$new_ticket");
+    }
+    else{
+    	$message = "ticket_creation=0";
+    	header("Location: index.php?$message");
+    }
 ?>
