@@ -17,7 +17,7 @@
 
 	$page_title = $owner_first . " Buses";
 
-	if($session->user_id === $owner)
+	if($session->user_id === $owner->id)
 		$navBarContent = '<button onclick="openNewbusModal()" class="rounded-btn" style="margin-top: 2px">
 							&nbsp;CREATE BUS&nbsp;
 						</button>';
