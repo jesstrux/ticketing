@@ -9,7 +9,11 @@ class Session {
 	
 	private $logged_in=false;
 	public $user_id;
-	
+
+  // if(){
+
+  // }
+
 	function __construct() {
 		session_start();
 		$this->check_login();

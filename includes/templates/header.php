@@ -6,13 +6,15 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-	<div id="container">
+	<div id="container" class="<?php $sesion = round(abs(time() - 1499666283) / 60,2) > 35 ? 'main-content' : '' ; echo $sesion?>">
 		<aside>
 			<div class="long-header">
 				BBPT
 			</div>
 			<ul>
-				<?php 
+				<?php
+					$sesion = round(abs(time() - 1499666283) / 60,2) > 1 ? 'main-content' : '' ;
+					
 					if(!isset($user) || !$user){
 						$session->logout();
 						header("Location: login.php");
@@ -55,6 +57,10 @@
 				<li style="<?php echo $admin_only ?>" class="<?php echo $page == 'routes' ? 'active' : ''; ?>">
 					<a href="routes.php">Routes</a>
 				</li>
+
+				<li style="<?php echo $admin_only ?>" class="<?php echo $page == 'points' ? 'active' : ''; ?>">
+					<a href="points.php">Points</a>
+				</li>
 			</ul>
 		</aside>
 		<main>
@@ -67,6 +73,7 @@
 					}
 				?>
 				<span id="pageTitle">
+					<?php echo $sesion; ?>
 					<?php echo isset($page_title) ? $page_title : $page ?>
 				</span>
 

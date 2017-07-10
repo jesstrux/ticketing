@@ -19,8 +19,8 @@
 			$query .= "<br/>`point_one_id` int(11) NOT NULL,";
 			$query .= "<br/>`point_two_id` int(11) NOT NULL,";
 			$query .= "<br/>PRIMARY KEY  (`id`),";
-			$query .= "<br/>FOREIGN KEY(point_one_id) REFERENCES points(`id`),";
-			$query .= "<br/>FOREIGN KEY(point_two_id) REFERENCES points(`id`)";
+			$query .= "<br/>FOREIGN KEY(point_one_id) REFERENCES points(`id`) ON DELETE CASCADE,";
+			$query .= "<br/>FOREIGN KEY(point_two_id) REFERENCES points(`id`) ON DELETE CASCADE";
 			
 			return $query;
 		}
