@@ -27,6 +27,20 @@
 		margin-bottom: 10px;
 		margin-right: 10px;
 	}
+
+	.route-item .title{
+		font-size: 0.8em;
+	}
+
+	.route-item .route-point span{
+		font-size: 1.4em;
+		/*font-weight: bold;*/
+		display: inline-block;
+	}
+
+	.route-item .route-point:first-child span{
+		margin-bottom: 16px;
+	}
 </style>
 
 
