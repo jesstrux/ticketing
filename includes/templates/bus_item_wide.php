@@ -4,23 +4,29 @@
 	</div>
 	<div class="flex-layout column" style="flex:1">
 		<h3 class="bus-title" styl="margin-bottom: -8px">
-			<span class="item-title sans-serif" style="font-weight: normal; display: block">
-				DEPARTURE
-			</span>
-			<span class="serif" style="font-size: 1.3em; line-height: 1.5em"><?php echo $bus->start_time() ?></span>
+			<span style="font-size: 1.3em;margin-bottom: 10px; display: inline-block;"><?php echo $bus->owner()->name; ?></span>
 		</h3>
 		
 		<div class="flex-layout" style="align-items: flex-end;">
-			<div class="bus-time" style="margin-bottom: 0; padding-bottom: 0; padding-top: 0">
-				<span class="item-title sans-serif" style="font-weight: normal; display: block">
+			<div style="margin-right: 20px">
+				<span class="item-title sans-serif" style="font-weight: normal; margin-bottom: 0; display: block">
 					COST
 				</span>
-				<span class="serif"><?php echo number_format($bus->price) ?></span>
+				<span class="serif" style="font-size: 1.3em; line-height: 1.5em">
+					<?php echo number_format($bus->price) ?>
+				</span>
 			</div>
 
-			<div class="flex-layout" style="margin-left: auto; padding-right:0; margin-right:0;">
-				<a href="<?php echo $preview_link?>bus_id=<?php echo $bus->id ?>">VIEW SEATS</a>&emsp;
+			<div class="">
+				<span class="item-title sans-serif" style="font-weight: normal; margin-bottom: 0; display: block">
+					DEPARTURE
+				</span>
+				<span class="serif" style="font-size: 1.3em; line-height: 1.5em"><?php echo $bus->start_time() ?></span>
 			</div>
 		</div>
+
+		<div class="flex-layout" style="margin-left: auto; padding-right:0; margin-right:0;">
+				<a href="<?php echo $preview_link?>bus_id=<?php echo $bus->id ?>">VIEW SEATS</a>&emsp;
+			</div>
 	</div>
 </div>
