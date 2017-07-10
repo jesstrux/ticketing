@@ -36,7 +36,12 @@
 
 		if($buses != null && count($buses) > 0){
 			$preview_link = "index.php?travel_date=".$travel_date."&";
-			echo '<h2 class="serif" style="margin-bottom: 32px;">Available buses,</h2>
+			echo '<h2 class="serif" style="margin-bottom: 32px;">Available buses,
+				<div class="flex-layout center" style="float: right; font-family: verdana; font-weight: normal; font-size: 0.7em; line-height: 1">
+					<span style="background-color: #E91E63; width: 20px; height: 20px; display: inline-block; margin-right: 10px"></span>
+					Best prices
+				</div>
+			</h2>
 			<div class="flex-layout column">';
 
 			foreach ($buses as $i => $bus) {
