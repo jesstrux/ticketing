@@ -39,10 +39,10 @@
 <div style="max-width: 700px; margin: 0 auto; overflow: hidden">
 	<h2 class="serif" style="margin-bottom: 32px; margin-left: 12px;">Search for buses,</h2>
 
-	<form id="searchForm" class="flex-layout wrap" action="index.php">
+	<form id="searchForm" class="flex-layout wrap" action="index.php" onsubmit="validateForm(event)">
 		<div class="user-input flex-layout column">
 			<label class="input-label">Starting Point</label>
-			<select name="start_point">
+			<select id="start_point" name="start_point">
 				<option value="">Pick an option</option>
 				<?php
 			        foreach ($points as $point) {
@@ -53,7 +53,7 @@
 		</div>
 		<div class="user-input flex-layout column">
 			<label class="input-label">Destination Point</label>
-			<select name="dest_point">
+			<select id="dest_point" name="dest_point">
 				<option value="">Pick an option</option>
 				
                 <?php
@@ -86,4 +86,15 @@
 			<input type="submit" value="FIND BUSES" name="search_buses" style="background: #e91e63; color: #fff">
 		</div>
 	</form>
+
+	<script>
+		function validateForm(e){
+			if(document.getElementById("start_point").value === document.getElementById("dest_point").value){
+				e.preventDefault();
+				alert("Start and destination points can't be the same!!");
+			}
+			else
+				return;
+		}
+	</script>
 </div>
