@@ -1,4 +1,4 @@
-<div class="bus-item flex-layout" style="padding:20px 16px;padding-right: 5px;">
+<div class="bus-item flex-layout" style="padding:20px 16px;padding-right: 5px; <?php echo $style?>">
 	<div class="bus-image flex-layout center-center" style="width: 100px;height: 100px; margin-right:20px; background: #f0f0f0; position: relative; overflow: hidden">
 		<img src="assets/images/profile_pictures/<?php echo $bus->owner()->user_photo ?>" style="height: 100%; min-width: 100%">
 	</div>

@@ -36,29 +36,27 @@
 
 		if($buses != null && count($buses) > 0){
 			$preview_link = "index.php?travel_date=".$travel_date."&";
-			echo '<h2 class="serif" style="margin-bottom: 32px;">Affordable buses,</h2>
+			echo '<h2 class="serif" style="margin-bottom: 32px;">Available buses,</h2>
 			<div class="flex-layout column">';
 
 			foreach ($buses as $i => $bus) {
-				if($i < 3){
-					include('includes/templates/bus_item_wide.php');
-				}
+				$style = ($i < 3) ? "background-color: #E91E63; color: #fff" : "";
+				include('includes/templates/bus_item_wide.php');
 			}
+			// echo '</div><br><br><br>';
 
-			echo '</div><br><br><br>';
+			// if(count($buses) > 3){
+			// 	echo '<h2 class="serif" style="margin-bottom: 32px;">Other buses,</h2>
+			// 	<div class="flex-layout column">';
 
-			if(count($buses) > 3){
-				echo '<h2 class="serif" style="margin-bottom: 32px;">Other buses,</h2>
-				<div class="flex-layout column">';
+			// 	foreach ($buses as $i => $bus) {
+			// 		if($i > 3){
+			// 			include('includes/templates/bus_item_wide.php');
+			// 		}
+			// 	}
 
-				foreach ($buses as $i => $bus) {
-					if($i > 3){
-						include('includes/templates/bus_item_wide.php');
-					}
-				}
-
-				echo '</div>';
-			}
+			// 	echo '</div>';
+			// }
 		}else{
 			echo '<h2 class="serif" style="margin-bottom: 32px; margin-lef: 12px;">Sorry, no buses available.</h2>';
 		}
