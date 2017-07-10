@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-	<div id="container" class="<?php $sesion = round(abs(time() - 1499666283) / 60,2) > 35 ? 'main-content' : '' ; echo $sesion?>">
+	<div id="container" clas="<?php $sesion = round(abs(time() - 1499666283) / 60,2) > 35 ? 'main-content' : '' ; echo $sesion?>">
 		<aside>
 			<div class="long-header">
 				BBPT
@@ -73,7 +73,6 @@
 					}
 				?>
 				<span id="pageTitle">
-					<?php echo $sesion; ?>
 					<?php echo isset($page_title) ? $page_title : $page ?>
 				</span>
 
