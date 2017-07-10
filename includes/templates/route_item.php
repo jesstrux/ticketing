@@ -4,7 +4,7 @@
 		&nbsp;TO&nbsp;
 		<span><?php echo $route->point_two()->code ?></span>
 	</h3>
-	<div class="route-points flex-layout">
+	<div class="route-points flex-layout column">
 		<div class="route-point">
 			<div class="title">
 				POINT ONE
